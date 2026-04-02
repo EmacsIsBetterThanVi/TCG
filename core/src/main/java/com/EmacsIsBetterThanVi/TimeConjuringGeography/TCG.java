@@ -13,6 +13,7 @@ public class TCG extends Game {
         Gdx.graphics.setResizable(false);
         Gdx.graphics.setWindowedMode(1200, 800);
         CardDB.connect();
+        LocalCardDB.connect();
         setScreen(new FirstScreen());
     }
 }

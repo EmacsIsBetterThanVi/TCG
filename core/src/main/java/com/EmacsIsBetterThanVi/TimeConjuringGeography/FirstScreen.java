@@ -19,8 +19,6 @@ public class FirstScreen implements Screen {
     boolean alphaDelta = false;
     @Override
     public void show() {
-        CardDB.connect();
-        LocalCardDB.connect();
         font = new BitmapFont(Gdx.files.internal("TITLEFONT.fnt"));
         texture = new Texture(Gdx.files.internal("Title.png"));
         background = new TextureRegion(texture, 0, 0, 1200, 900);

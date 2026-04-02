@@ -5,6 +5,7 @@ import com.badlogic.gdx.Screen;
 public class HomeScreen implements Screen {
     @Override
     public void show() {
+
         TCG.self.setScreen(new GameScreen());
     }
 

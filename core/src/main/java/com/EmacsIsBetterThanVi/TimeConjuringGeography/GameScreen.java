@@ -21,6 +21,8 @@ public class GameScreen implements Screen {
     public Card[] cards;
     public Sprite fullView;
     public SpriteBatch batch;
+    public int players;
+
     public Card getCard(int player, int id){
         return cards[(player-1)*213+id];
     }
@@ -34,17 +36,19 @@ public class GameScreen implements Screen {
         board = new Texture(Gdx.files.internal("board.png"));
         cards = new Card[213*TCG.Players+1]; // Card 0 is the card back of player 1, cards 1-212 are the first player's. Card 213 is the card back of player 2. Cards 214-424 are the second player's, and so on.
         playerBoard = new Sprite(board, 0, 0, 1200, 900);
-        player3Board = new Sprite(board, 0, 0, 1200, 900);
+        if (players>2) {
+            player3Board = new Sprite(board, 0, 0, 1200, 900);
+            player3Board.setPosition(-300, 225);
+            player3Board.setScale(0.5f);
+            player3Board.flip(true, true);
+        }
         player2Board = new Sprite(board, 0, 0, 1200, 900);
         player4Board = new Sprite(board, 0, 0, 1200, 900);
         playerBoard.setScale(0.5f);
-        player3Board.setScale(0.5f);
         player2Board.setScale(0.5f);
         player4Board.setScale(0.5f);
         playerBoard.setPosition(300, -225);
         player2Board.setPosition(300, 225);
-        player3Board.setPosition(-300, 225);
-        player3Board.flip(true, true);
         player4Board.setPosition(-300, -225);
         player4Board.flip(true, true);
         batch = new SpriteBatch();

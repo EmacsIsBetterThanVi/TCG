@@ -64,11 +64,11 @@ public class CardDB {
             connection.close();
         } catch (SQLException ignored) {}
     }
-    static Connection connection;
+    private static Connection connection;
     public static void connect(){
         try {
             connection=DriverManager.getConnection("jdbc:sqlite:cards.db");
-            System.out.println("Connection to SQLite has been established.");
+            System.out.println("Connection to CardDB has been established.");
         } catch (SQLException e) {
             System.err.println("Could not open CardDB");
             System.exit(1);
